@@ -4,6 +4,9 @@
     border-radius: 2cap;
 }
 
+.body1{
+    background-color: rgba(219, 149, 43, 0.123);
+}
 .topnav a {
     float: left;
     display: block;
