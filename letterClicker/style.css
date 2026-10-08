@@ -1,0 +1,12 @@
+.word{
+    flex: content;
+    -ms-flex-align: start;
+    word-wrap: break-word;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.btnMain{
+    padding: 1cap;
+    border-radius: 1cap;
+    font-family: monospace;
+}
