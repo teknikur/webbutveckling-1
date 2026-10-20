@@ -9,3 +9,7 @@ label{
 body{
     background-color: #449DD1;
 }
+
+.weekdaySelector{
+    border-radius: 1cap;
+}

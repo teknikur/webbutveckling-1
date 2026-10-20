@@ -63,8 +63,23 @@ function test() {
 
 
   console.log(weekdaySelector.value);
-
-  while (weekDays.indexOf(getDayOfWeek(dateArray)) != weekdaySelector.value && dateArray[0] <= currentYear) {
+  while (dateArray[0]<currentYear) {
+    dateArray[0]++;
+    if (dateArray[0]===currentYear) {
+      if (dateArray[1]>currentMonth) {
+        
+      }else if (dateArray[1]===currentMonth) {
+        if (dateArray[2]<=currentDayOfMonth) {
+          dateArray[0]++;
+        }
+      }else{
+        dateArray[0]++;
+      }
+      
+    }
+  }
+  while (weekDays.indexOf(getDayOfWeek(dateArray)) != weekdaySelector.value){
+    
     dateArray[0]++;
 
   }
