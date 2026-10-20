@@ -8,7 +8,7 @@
     
 </head>
 <body>
-    <label for="dateMMDDYYYY" aria-valuetext="2">Date:</label>
+    <label for="dateMMDDYYYY">Date:</label>
     <input type="date" id="dateMMDDYYYY">
     <br>
     <label for="weekdaySelector">Desired day of week: </label>
@@ -21,7 +21,15 @@
         <option value="5">Saturday</option>
         <option value="6">Sunday</option>
     </select>
-
+    <div class="dropping-texts">
+        <div>Monday</div>
+        <div>Tuesday</div>
+        <div>Wednesday</div>
+        <div>Thursday</div>
+        <div>Friday</div>
+        <div>Saturday</div>
+        <div>Sunday</div>
+    </div>
     <span id="resultOutput" class="span1"></span>
     
     <button type="button" id="testButton" onclick="test()">Yes</button>
