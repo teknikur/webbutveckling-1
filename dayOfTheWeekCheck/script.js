@@ -33,21 +33,47 @@ function getDayOfWeek(dateArray) {
 }
 
 function test() {
+  let outputBox = document.getElementById("resultOutput");
+  const weekdaySelector = document.getElementById("weekdaySelector");
+  const weekdaySelectorT = weekdaySelector.selectedOptions;
+  let resultOutput = "";
   const dateMMDDYYYY = document.getElementById("dateMMDDYYYY").value;
   let dateArray = dateMMDDYYYY.split("-");
-  console.log(dateMMDDYYYY);
+  let currentDate = new Date();
+  let currentDateT = currentDate.toISOString().split("T")[0];
+  let currentDateTOnly = currentDateT.split("-");
+
+  let currentYear = currentDate.getYear() + 1900;
+  let currentMonth = currentDateTOnly[1];
+  let currentDayOfMonth = currentDateTOnly[2];
   
-  var resultOutput = document.getElementById("resultOutput");
+  console.log(currentYear);
+  console.log(currentMonth);
+  console.log(currentDayOfMonth);
+
+  console.log(currentDateT);
+  console.log(currentDateTOnly);
+
+  console.log(dateMMDDYYYY);
+
+
 
   console.log(getDayOfWeek(dateArray));
 
-  const weekdaySelector = document.getElementById("weekdaySelector");
-  console.log(weekdaySelector.value);
- 
 
-  while (weekDays.indexOf(getDayOfWeek(dateArray)) != weekdaySelector.value&&dateArray[0]>=new Date().getFullYear) {
+
+  console.log(weekdaySelector.value);
+
+  while (weekDays.indexOf(getDayOfWeek(dateArray)) != weekdaySelector.value && dateArray[0] <= currentYear) {
     dateArray[0]++;
-    
+
   }
-  resultOutput.innerHTML = "Next time your birthday is on #"+ (weekdaySelector.value)+" of the week: "+dateArray[0]+"/"+dateArray[1]+"/"+dateArray[2];
+  for (let i = 0; i < weekdaySelectorT.length; i++) {
+    if (resultOutput === "") {
+      resultOutput = "Next time your birthday is on a " + weekdaySelectorT[i].label + " is: " + dateArray[0] + "/" + dateArray[1] + "/" + dateArray[2];
+    }
+
+  }
+
+  outputBox.textContent = resultOutput;
 }
