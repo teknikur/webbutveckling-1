@@ -1,5 +1,7 @@
 .span1{
     font-family: Arial, Helvetica, sans-serif;
+
+    
 }
 label{
     color: #0e0e52;
@@ -15,7 +17,7 @@ body{
     font-size: large;
     font-weight: 100;
     overflow: hidden;
-    animation:bg 7s linear infinite;
+    animation:bg 14s linear infinite;
     background-color: #449DD1;
 }
 .dropping-texts{
@@ -52,7 +54,7 @@ body{
     animation: roll 14s linear infinite 10s;
 }
 .dropping-texts>div:nth-child(7){
-    animation: roll2 8s linear infinite 12s;
+    animation: roll 14s linear infinite 12s;
 }
 @keyframes roll {
     0%{
@@ -77,7 +79,7 @@ body{
         font-size: inherit;
         opacity: 1;
         margin-left: 0px;
-        margin-top: 0px;
+        margin-top: 50px;
         transform:rotate(0deg);
     }
     27%{
@@ -86,12 +88,7 @@ body{
         margin-left: 20px;
         margin-top: 100px;
     }
-    30%{
-        font-size: 0px;
-        opacity: 0.5;
-        margin-left: 20px;
-        margin-top: 30px;
-    }
+
     100%{
         font-size: 0px;
         opacity: 0;
@@ -139,19 +136,7 @@ body{
     transform: rotate(15deg);
  }
 }
-@keyframes bg {
-    0%{background: #ff0075;}
-    3%{background: #0094ff;}
-    20%{background: #0094ff}
-    23%{background: #b200ff}
-    40%{background: #b200ff}
-    43%{background: #8bc34a}
-    60%{background: #8bc34a}
-    63%{background: #f44336}
-    80%{background: #f44336}
-    83%{background: #f44336}
-    100%{background: #f44336}
-}
+
 .weekdaySelector{
     border-radius: 1cap;
 }

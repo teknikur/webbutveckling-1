@@ -8,9 +8,20 @@
     
 </head>
 <body>
+    <h1></h1>
+    When will this date be on a 
+    <h1 class="dropping-texts">
+        <div>Monday</div>
+        <div>Tuesday</div>
+        <div>Wednesday</div>
+        <div>Thursday</div>
+        <div>Friday</div>
+        <div>Saturday</div>
+        <div>Sunday</div>
+    </h1>
+    <br>
     <label for="dateMMDDYYYY">Date:</label>
     <input type="date" id="dateMMDDYYYY">
-    <br>
     <label for="weekdaySelector">Desired day of week: </label>
     <select name="weekday" id="weekdaySelector" class="weekdaySelector">
         <option value="0">Monday</option>
@@ -21,15 +32,7 @@
         <option value="5">Saturday</option>
         <option value="6">Sunday</option>
     </select>
-    <div class="dropping-texts">
-        <div>Monday</div>
-        <div>Tuesday</div>
-        <div>Wednesday</div>
-        <div>Thursday</div>
-        <div>Friday</div>
-        <div>Saturday</div>
-        <div>Sunday</div>
-    </div>
+    
     <span id="resultOutput" class="span1"></span>
     
     <button type="button" id="testButton" onclick="test()">Yes</button>
