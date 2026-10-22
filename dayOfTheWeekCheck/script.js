@@ -1,13 +1,3 @@
-function updateFontColor(eleRef, color) {
-  $(eleRef).css("color", color);
-}
-
-function waitForMs(ms) {
-  return new Promise((resolve) => {
-    return setTimeout(resolve, ms);
-  });
-}
-
 const weekDays = [
   "Monday",
   "Tuesday",
@@ -109,3 +99,59 @@ function test() {
 
   outputBox.textContent = resultOutput;
 }
+
+
+const carouselText = [
+  {text: "Monday?", color: "red"},
+  {text: "Tuesday?", color: "orange"},
+  {text: "Wednesday?", color: "yellow"},
+  {text: "Thursday?", color: "lightgreen"},
+  {text: "Friday?", color: "green"},
+  {text: "Saturday?", color: "blue"},
+  {text: "Sunday?", color: "purple"}
+]
+
+async function typeSentence(sentence, delay = 100) {
+  const letters = sentence.split("");
+  let i = 0;
+  while(i < letters.length) {
+    await waitForMs(delay);
+    document.getElementById("feature-text").innerHTML += letters[i];
+    i++
+  }
+  return;
+}
+
+async function deleteSentence() {
+  const sentence = document.getElementById("feature-text").innerHTML;
+  const letters = sentence.split("");
+  let i = 0;
+  while(letters.length > 0) {
+    await waitForMs(100);
+    letters.pop();
+    document.getElementById("feature-text").innerHTML = letters.join("");
+  }
+}
+
+async function carousel(carouselList) {
+    var i = 0;
+    while(true) {
+      updateFontColor(carouselList[i].color)
+      await typeSentence(carouselList[i].text);
+      await waitForMs(1500);
+      await deleteSentence();
+      await waitForMs(500);
+      i++
+      if(i >= carouselList.length) {i = 0;}
+    }
+}
+
+function updateFontColor(color) {
+  document.getElementById("feature-text").style.color = color;
+}
+
+function waitForMs(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+carousel(carouselText)
