@@ -1,4 +1,22 @@
-const weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+function updateFontColor(eleRef, color) {
+  $(eleRef).css("color", color);
+}
+
+function waitForMs(ms) {
+  return new Promise((resolve) => {
+    return setTimeout(resolve, ms);
+  });
+}
+
+const weekDays = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
 
 function isLeapYear(year) {
   return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
@@ -46,7 +64,7 @@ function test() {
   let currentYear = currentDate.getYear() + 1900;
   let currentMonth = currentDateTOnly[1];
   let currentDayOfMonth = currentDateTOnly[2];
-  
+
   console.log(currentYear);
   console.log(currentMonth);
   console.log(currentDayOfMonth);
@@ -56,38 +74,37 @@ function test() {
 
   console.log(dateMMDDYYYY);
 
-
-
   console.log(getDayOfWeek(dateArray));
 
-
-
   console.log(weekdaySelector.value);
-  while (dateArray[0]<currentYear) {
+  while (dateArray[0] < currentYear) {
     dateArray[0]++;
-    if (dateArray[0]===currentYear) {
-      if (dateArray[1]>currentMonth) {
-        
-      }else if (dateArray[1]===currentMonth) {
-        if (dateArray[2]<=currentDayOfMonth) {
+    if (dateArray[0] === currentYear) {
+      if (dateArray[1] > currentMonth) {
+      } else if (dateArray[1] === currentMonth) {
+        if (dateArray[2] <= currentDayOfMonth) {
           dateArray[0]++;
         }
-      }else{
+      } else {
         dateArray[0]++;
       }
-      
     }
   }
-  while (weekDays.indexOf(getDayOfWeek(dateArray)) != weekdaySelector.value){
-    
+  while (weekDays.indexOf(getDayOfWeek(dateArray)) != weekdaySelector.value) {
     dateArray[0]++;
-
   }
   for (let i = 0; i < weekdaySelectorT.length; i++) {
     if (resultOutput === "") {
-      resultOutput = "Next time your birthday is on a " + weekdaySelectorT[i].label + " is: " + dateArray[0] + "/" + dateArray[1] + "/" + dateArray[2];
+      resultOutput =
+        "Next time your birthday is on a " +
+        weekdaySelectorT[i].label +
+        " is: " +
+        dateArray[0] +
+        "/" +
+        dateArray[1] +
+        "/" +
+        dateArray[2];
     }
-
   }
 
   outputBox.textContent = resultOutput;

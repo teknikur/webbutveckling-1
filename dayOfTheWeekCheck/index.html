@@ -3,23 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>The Crazy Planners Calendar</title>
     <link rel="stylesheet" href="style.css">
+    <script src="text.js"></script>
     
 </head>
 <body>
-    <h1></h1>
-    When will this date be on a 
-    <h1 class="dropping-texts">
-        <div>Monday</div>
-        <div>Tuesday</div>
-        <div>Wednesday</div>
-        <div>Thursday</div>
-        <div>Friday</div>
-        <div>Saturday</div>
-        <div>Sunday</div>
-    </h1>
-    <br>
+    <div class="typing-container">
+        <span id="sentence" class="sentence">When is this date gonna be on a </span>
+        <span id="feature-text"></span>
+        <span class="input-cursor"></span>
+    </div>
     <label for="dateMMDDYYYY">Date:</label>
     <input type="date" id="dateMMDDYYYY">
     <label for="weekdaySelector">Desired day of week: </label>
@@ -36,6 +30,7 @@
     <span id="resultOutput" class="span1"></span>
     
     <button type="button" id="testButton" onclick="test()">Yes</button>
+    <footer>Artur</footer>
     <script src="script.js"></script>
 </body>
 </html>
