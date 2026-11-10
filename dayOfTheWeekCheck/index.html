@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Crazy Planners Calendar</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="text.js"></script>
-    
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The CPC</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
     <div class="typing-container">
-        <span id="sentence" class="sentence">When is this date gonna be on a </span>
-        <span id="feature-text"></span>
-        <span class="input-cursor"></span>
+      <span id="sentence" class="sentence"
+        >When is this date gonna be on a
+      </span>
+      <span id="day-text"></span>
+      <span class="input-cursor"></span>
     </div>
 
     <div>
-        <label for="dateMMDDYYYY">Date:</label>
-        <input type="date" id="dateMMDDYYYY">
-        <label for="weekdaySelector">Desired day of week: </label>
-        <select name="weekday" id="weekdaySelector" class="weekdaySelector">
-            <option value="0">Monday</option>
-            <option value="1">Tuesday</option>
-            <option value="2">Wednesday</option>
-            <option value="3">Thursday</option>
-            <option value="4">Friday</option>
-            <option value="5">Saturday</option>
-            <option value="6">Sunday</option>
-        </select>
-        
-        <span id="resultOutput" class="span1"></span>
-        
-        <button type="button" id="testButton" onclick="test()">Yes</button>
+      <label for="dateMMDDYYYY">Date:</label>
+      <input type="date" id="dateMMDDYYYY" />
+      <br />
+      <label for="weekdaySelector">Desired day of week: </label>
+      <select name="weekday" id="weekdaySelector" class="weekdaySelector">
+        <option value="0">Monday</option>
+        <option value="1">Tuesday</option>
+        <option value="2">Wednesday</option>
+        <option value="3">Thursday</option>
+        <option value="4">Friday</option>
+        <option value="5">Saturday</option>
+        <option value="6">Sunday</option>
+      </select>
+      <br />
+      <span id="resultOutput" class="span1"></span>
+      <br />
+      
     </div>
+    <button type="button" id="testButton" onclick="run()">OK</button>
+    <footer style="font-size: xx-small; margin-top: 55vh; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Have you ever wondered what date will have a certain weekday? No? Fine I have, so try it out. The Crazy Planners Calendar - Artur 2026 ℠</footer>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

@@ -21,12 +21,12 @@ function getDayOfWeek(dateArray) {
 
   let totalDays = 0;
 
-  // Count complzete years before current year
+  // Count complzete years before current year cuz then yea
   for (let y = 1; y < year; y++) {
     totalDays += isLeapYear(y) ? 366 : 365;
   }
-
-  // Count complete months before current month
+//REMEMBER TO ADD MORE LIKE COOL THINGS LIKE DEPENDING O N WHAT WEEKDAY YOU SELECT IT STOPS ON THAT TDAY IN THE ANIMATION AND THEN INSTEAD OF REWRITING THE WEEKDAY IT REWRITES THE SENTENCE LIKE WHEN IS MY BIRTHDAY, WHEN IS MY WEDDINGDAY GONNA BE ON THIS DATE OR SUCH SOMETING LIKE IT.
+  // Count complete months before current month and remove one day elapsed if not leapyear
   for (let m = 1; m < month; m++) {
     if (m === 2 && isLeapYear(year)) totalDays += 29;
     else totalDays += daysInMonth[m - 1];
@@ -35,12 +35,12 @@ function getDayOfWeek(dateArray) {
   // Add days in current month
   totalDays += day - 1;
 
-  // 01-01-0001 was Monday
+  // 01-01-0001 was Monday (in this calendar)
 
   return weekDays[totalDays % 7];
 }
 
-function test() {
+function run() {
   let outputBox = document.getElementById("resultOutput");
   const weekdaySelector = document.getElementById("weekdaySelector");
   const weekdaySelectorT = weekdaySelector.selectedOptions;
@@ -55,18 +55,6 @@ function test() {
   let currentMonth = currentDateTOnly[1];
   let currentDayOfMonth = currentDateTOnly[2];
 
-  console.log(currentYear);
-  console.log(currentMonth);
-  console.log(currentDayOfMonth);
-
-  console.log(currentDateT);
-  console.log(currentDateTOnly);
-
-  console.log(dateMMDDYYYY);
-
-  console.log(getDayOfWeek(dateArray));
-
-  console.log(weekdaySelector.value);
   while (dateArray[0] < currentYear) {
     dateArray[0]++;
     if (dateArray[0] === currentYear) {
@@ -100,58 +88,59 @@ function test() {
   outputBox.textContent = resultOutput;
 }
 
-
 const carouselText = [
-  {text: "Monday?", color: "red"},
-  {text: "Tuesday?", color: "orange"},
-  {text: "Wednesday?", color: "yellow"},
-  {text: "Thursday?", color: "lightgreen"},
-  {text: "Friday?", color: "green"},
-  {text: "Saturday?", color: "blue"},
-  {text: "Sunday?", color: "purple"}
-]
+  { text: "Monday?", color: "red" },
+  { text: "Tuesday?", color: "orange" },
+  { text: "Wednesday?", color: "yellow" },
+  { text: "Thursday?", color: "lightgreen" },
+  { text: "Friday?", color: "green" },
+  { text: "Saturday?", color: "blue" },
+  { text: "Sunday?", color: "purple" },
+];
 
 async function typeSentence(sentence, delay = 100) {
   const letters = sentence.split("");
   let i = 0;
-  while(i < letters.length) {
+  while (i < letters.length) {
     await waitForMs(delay);
-    document.getElementById("feature-text").innerHTML += letters[i];
-    i++
+    document.getElementById("day-text").innerHTML += letters[i];
+    i++;
   }
   return;
 }
 
 async function deleteSentence() {
-  const sentence = document.getElementById("feature-text").innerHTML;
+  const sentence = document.getElementById("day-text").innerHTML;
   const letters = sentence.split("");
   let i = 0;
-  while(letters.length > 0) {
+  while (letters.length > 0) {
     await waitForMs(100);
     letters.pop();
-    document.getElementById("feature-text").innerHTML = letters.join("");
+    document.getElementById("day-text").innerHTML = letters.join("");
   }
 }
 
 async function carousel(carouselList) {
-    var i = 0;
-    while(true) {
-      updateFontColor(carouselList[i].color)
-      await typeSentence(carouselList[i].text);
-      await waitForMs(1500);
-      await deleteSentence();
-      await waitForMs(500);
-      i++
-      if(i >= carouselList.length) {i = 0;}
+  var i = 0;
+  while (true) {
+    updateFontColor(carouselList[i].color);
+    await typeSentence(carouselList[i].text);
+    await waitForMs(1500);
+    await deleteSentence();
+    await waitForMs(500);
+    i++;
+    if (i >= carouselList.length) {
+      i = 0;
     }
+  }
 }
 
 function updateFontColor(color) {
-  document.getElementById("feature-text").style.color = color;
+  document.getElementById("day-text").style.color = color;
 }
 
 function waitForMs(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms))
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-carousel(carouselText)
+carousel(carouselText);
