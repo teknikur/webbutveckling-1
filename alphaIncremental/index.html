@@ -4,14 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
 </head>
-<body onkeypress="(increment(count))">
     <div>
-        <span id="count">0α</span>
+        <span id="count">0</span>α
     </div>
-    <button id="btnMain" onclick="increment(count)">
+    <button id="btnMain" onclick="alphaClick(incrementValue)">
         +
     </button>
+    <div class="upgPnl">
+        <div>
+            <button id="buyUpg1btn" onclick="buyUpgradeOne()"></button><br>
+                <span class="upg">burbur Lvl
+                <span id="upg1">0</span></span>
+                <span id="activeGainOne"></span><br>
+
+                <span id="upg1CostMsg">cost of lvl 1 =</span>
+                <span id="upg1Cost">10α</span>
+            
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
