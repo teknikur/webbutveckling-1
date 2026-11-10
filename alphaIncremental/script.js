@@ -20,8 +20,7 @@ function buyUpgradeOne(){
         document.getElementById('count').innerHTML = numAlpha;
     }
     var nextCost = Math.floor(10*Math.pow(1.1,qOfUpgradeOne));
-    document.getElementById('upg1CostMsg').innerHTML="cost of lvl " + (qOfUpgradeOne+1) +" = ";
-    document.getElementById('upg1Cost').innerHtml=nextCost+"α"
+    document.getElementById('upg1CostMsg').innerHTML="cost of lvl " + (qOfUpgradeOne+1) +" = "+nextCost+"α";
 }
 
 window.setInterval(function () {
