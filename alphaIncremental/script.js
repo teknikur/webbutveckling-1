@@ -1,9 +1,29 @@
-var number = 0;
+var numAlpha = 0;
 var incrementValue = 1;
-function increment(){
-    var count = document.getElementById('count');
+var qOfUpgradeOne = 0;
 
-    number++;
+function alphaClick(alphaNumber){
+    numAlpha=numAlpha+alphaNumber;
+    document.getElementById('count').innerHTML = numAlpha;
 
-    count.textContent = number.toString()+"α";
+    if (qOfUpgradeOne>0) {
+        document.getElementById('activeGainOne').innerHTML = qOfUpgradeOne+"α/s"
+    }
 }
+
+function buyUpgradeOne(){
+    var upgradeOneCost = Math.floor(10*Math.pow(1.1,qOfUpgradeOne));
+    if (numAlpha>=upgradeOneCost) {
+        qOfUpgradeOne++;
+        numAlpha=numAlpha-upgradeOneCost;
+        document.getElementById('upg1').innerHTML=qOfUpgradeOne;
+        document.getElementById('count').innerHTML = numAlpha;
+    }
+    var nextCost = Math.floor(10*Math.pow(1.1,qOfUpgradeOne));
+    document.getElementById('upg1CostMsg').innerHTML="cost of lvl " + (qOfUpgradeOne+1) +" = ";
+    document.getElementById('upg1Cost').innerHtml=nextCost+"α"
+}
+
+window.setInterval(function () {
+    alphaClick(qOfUpgradeOne);
+},1000)
